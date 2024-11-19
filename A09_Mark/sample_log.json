@@ -1,1 +1,0 @@
-{ "timestamp": "2024-11-19T12:00:45Z", "event.module": "system", "event.action": "log write failure", "message": "Failed to write security log due to insufficient permissions", "error.code": "EACCES", "severity": "critical", "tags": ["logging", "error"] }

@@ -1,0 +1,3 @@
+[2024-11-19T12:34:56Z] "GET /search?q=' OR '1'='1 -- HTTP/1.1" 500 - User-Agent: SQLMap/1.5.5
+[2024-11-19T12:36:10Z] "POST /login HTTP/1.1" 400 - Body: {"username": "admin", "password": "' OR 1=1 --"}
+[2024-11-19T12:37:45Z] "GET /users?name=UNION SELECT * FROM users HTTP/1.1" 500 -
