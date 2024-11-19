@@ -1,0 +1,26 @@
+{
+    "query": {
+        "bool": {
+            "should": [
+                {
+                    "match": {
+                        "proctitle": "sudo\\x00cat\\x00/etc/shadow"
+                    }
+                },
+                {
+                    "match": {
+                        "proctitle": "cat\\x00/etc/shadow"
+                    }
+                }
+            ],
+            "filter": {
+                "range": {
+                    "@timestamp": {
+                        "gte": "now-15m",
+                        "lte": "now"
+                    }
+                }
+            }
+        }
+    }
+}

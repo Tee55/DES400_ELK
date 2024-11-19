@@ -1,0 +1,141 @@
+{
+    "id": "0a21b2f9-0db4-464b-9031-5618918ce55a",
+    "updated_at": "2024-11-18T14:02:42.991Z",
+    "updated_by": "elastic",
+    "created_at": "2024-11-18T14:02:42.991Z",
+    "created_by": "elastic",
+    "name": "T1003.008 Detection Rule",
+    "tags": [],
+    "interval": "5m",
+    "enabled": true,
+    "revision": 0,
+    "description": "T1003.008 Detection Rule",
+    "risk_score": 21,
+    "severity": "low",
+    "license": "",
+    "output_index": "",
+    "meta": {
+        "from": "1m",
+        "kibana_siem_app_url": "http://localhost:5601/app/security"
+    },
+    "author": [],
+    "false_positives": [],
+    "from": "now-360s",
+    "rule_id": "108d3839-6a37-4a0e-b8d2-8f3e77cf039d",
+    "max_signals": 100,
+    "risk_score_mapping": [],
+    "severity_mapping": [],
+    "threat": [
+        {
+            "framework": "MITRE ATT&CK",
+            "tactic": {
+                "id": "TA0006",
+                "name": "Credential Access",
+                "reference": "https://attack.mitre.org/tactics/TA0006"
+            },
+            "technique": [
+                {
+                    "id": "T1003",
+                    "name": "OS Credential Dumping",
+                    "reference": "https://attack.mitre.org/techniques/T1003",
+                    "subtechnique": [
+                        {
+                            "id": "T1003.008",
+                            "name": "/etc/passwd and /etc/shadow",
+                            "reference": "https://attack.mitre.org/techniques/T1003/008"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "to": "now",
+    "references": [],
+    "version": 1,
+    "exceptions_list": [],
+    "immutable": false,
+    "rule_source": {
+        "type": "internal"
+    },
+    "related_integrations": [],
+    "required_fields": [],
+    "setup": "",
+    "type": "query",
+    "language": "kuery",
+    "data_view_id": "security-solution-default",
+    "query": "",
+    "filters": [
+        {
+            "$state": {
+                "store": "appState"
+            },
+            "meta": {
+                "type": "combined",
+                "relation": "AND",
+                "params": [
+                    {
+                        "query": {
+                            "match_phrase": {
+                                "command": "sudo\\x00cat\\x00/etc/shadow"
+                            }
+                        },
+                        "meta": {
+                            "negate": false,
+                            "index": "security-solution-default",
+                            "key": "command",
+                            "field": "command",
+                            "params": {
+                                "query": "sudo\\x00cat\\x00/etc/shadow"
+                            },
+                            "type": "phrase",
+                            "disabled": false,
+                            "alias": null
+                        }
+                    },
+                    {
+                        "meta": {
+                            "negate": false,
+                            "index": "security-solution-default",
+                            "key": "proctitle_type",
+                            "field": "proctitle_type",
+                            "params": {
+                                "query": "PROCTITLE"
+                            },
+                            "type": "phrase",
+                            "disabled": false,
+                            "alias": null
+                        },
+                        "query": {
+                            "match_phrase": {
+                                "proctitle_type": "PROCTITLE"
+                            }
+                        }
+                    }
+                ],
+                "index": "security-solution-default",
+                "disabled": false,
+                "negate": false,
+                "alias": null
+            },
+            "query": {}
+        }
+    ],
+    "actions": []
+}
+{
+    "exported_count": 1,
+    "exported_rules_count": 1,
+    "missing_rules": [],
+    "missing_rules_count": 0,
+    "exported_exception_list_count": 0,
+    "exported_exception_list_item_count": 0,
+    "missing_exception_list_item_count": 0,
+    "missing_exception_list_items": [],
+    "missing_exception_lists": [],
+    "missing_exception_lists_count": 0,
+    "exported_action_connector_count": 0,
+    "missing_action_connection_count": 0,
+    "missing_action_connections": [],
+    "excluded_action_connection_count": 0,
+    "excluded_action_connections": []
+}

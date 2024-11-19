@@ -1,0 +1,26 @@
+{
+    "query": {
+        "bool": {
+            "should": [
+                {
+                    "match": {
+                        "message": "Invalid user"
+                    }
+                },
+                {
+                    "match": {
+                        "message": "Accepted password"
+                    }
+                }
+            ],
+            "filter": {
+                "range": {
+                    "@timestamp": {
+                        "gte": "now-15m",
+                        "lte": "now"
+                    }
+                }
+            }
+        }
+    }
+}
