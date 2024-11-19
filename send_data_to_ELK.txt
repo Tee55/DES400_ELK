@@ -1,0 +1,1 @@
+type logs\A02\T1552.001\linux_secure.txt | ncat --send-only localhost 50000
