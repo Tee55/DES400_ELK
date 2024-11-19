@@ -1,4 +1,4 @@
-{"http":{ "request": { "timestamp": "2024-11-19T12:34:56", "url": "http://127.0.0.1/admin", "user_agent": "Mozilla/5.0", "response": "200 OK", "description": "Internal Endpoint Access via SSRF" }}}
-{"http":{ "request": { "timestamp": "2024-11-19T13:01:22", "url": "http://169.254.169.254/latest/meta-data", "user_agent": null, "response": "403 Forbidden", "description": "Attempted Access to AWS Metadata Endpoint" }}}
-{"http":{ "request": { "timestamp": "2024-11-19T13:45:00", "url": "http://malicious-site.onion/admin", "user_agent": "curl/7.68.0", "response": "404 Not Found", "description": "Access to Unusual External Domain" }}}
-{"http":{ "request": { "timestamp": "2024-11-19T14:12:10", "url": "http://0.0.0.0/private/config", "user_agent": "Custom-Agent/1.0", "response": "200 OK", "description": "Successful Exploit - Internal API Access" }}}
+{"A10":{ "request": { "timestamp": "2024-11-19T12:34:56", "url": "http://127.0.0.1/admin", "user_agent": "Mozilla/5.0", "response": "200 OK", "description": "Internal Endpoint Access via SSRF" }}}
+{"A10":{ "request": { "timestamp": "2024-11-19T13:01:22", "url": "http://169.254.169.254/latest/meta-data", "user_agent": null, "response": "403 Forbidden", "description": "Attempted Access to AWS Metadata Endpoint" }}}
+{"A10":{ "request": { "timestamp": "2024-11-19T13:45:00", "url": "http://malicious-site.onion/admin", "user_agent": "curl/7.68.0", "response": "404 Not Found", "description": "Access to Unusual External Domain" }}}
+{"A10":{ "request": { "timestamp": "2024-11-19T14:12:10", "url": "http://0.0.0.0/private/config", "user_agent": "Custom-Agent/1.0", "response": "200 OK", "description": "Successful Exploit - Internal API Access" }}}
